@@ -10,4 +10,5 @@ class TaskCreationForm(forms.ModelForm):
         widgets = {
             'task_name': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'is_completed': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
