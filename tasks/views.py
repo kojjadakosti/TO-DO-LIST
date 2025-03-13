@@ -20,3 +20,9 @@ def create_task(request):
         form = TaskCreationForm()
     context = {'form': form}
     return render(request, 'tasks/create.html', context)
+
+
+def edit_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    context = {'task': task}
+    return render(request, 'tasks/update.html', context)
