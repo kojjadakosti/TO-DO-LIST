@@ -1,10 +1,13 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
 
 from tasks.forms import TaskCreationForm
+from tasks.models import Task
 
 
 def index(request):
-    return render(request, 'tasks/list.html')
+    tasks = Task.objects.all()
+    context = {'tasks': tasks}
+    return render(request, 'tasks/list.html', context)
 
 
 def create_task(request):
