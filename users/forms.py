@@ -5,10 +5,23 @@ from users.models import User
 
 
 class UserRegistrationForm(UserCreationForm):
-    username = forms.CharField()
-    password1 = forms.CharField()
-    password2 = forms.CharField()
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control py-4'}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control py-4'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control py-4'}))
 
     class Meta:
-        models = User
+        model = User
         fields = ('username', 'password1', 'password2')
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control py-4'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control py-4'}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'password')

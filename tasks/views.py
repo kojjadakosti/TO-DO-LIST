@@ -1,10 +1,11 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404
 from django.http import HttpResponseNotAllowed
+from django.contrib.auth.decorators import login_required
 
 from tasks.forms import TaskCreationForm
 from tasks.models import Task
 
-
+@login_required(login_url='/users/login/')
 def index(request):
     tasks = Task.objects.all()
     context = {'tasks': tasks}
