@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404
+from django.http import HttpResponseNotAllowed
 
 from tasks.forms import TaskCreationForm
 from tasks.models import Task
@@ -10,7 +11,7 @@ def index(request):
     return render(request, 'tasks/list.html', context)
 
 
-def create_task(request):
+def create(request):
     if request.method == 'POST':
         form = TaskCreationForm(request.POST)
         if form.is_valid():
@@ -22,7 +23,7 @@ def create_task(request):
     return render(request, 'tasks/create.html', context)
 
 
-def edit_task(request, task_id):
+def edit(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     if request.method == 'POST':
         form = TaskCreationForm(request.POST, instance=task)
@@ -33,3 +34,16 @@ def edit_task(request, task_id):
         form = TaskCreationForm(instance=task)
     context = {'form': form, 'task': task}
     return render(request, 'tasks/update.html', context)
+
+def delete(request, task_id):
+    if request.method == 'POST':
+        task = get_object_or_404(Task, id=task_id)
+        task.delete()
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseNotAllowed(['POST'])
+
+def details(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    context = {'task': task}
+    return render(request, 'tasks/details.html', context)
