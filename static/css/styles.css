@@ -1,0 +1,96 @@
+/* Основные стили для body */
+body {
+    background: linear-gradient(135deg, #e6f4ff, #f0f8ff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Стили для шапки */
+.navbar {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: #cce7ff !important;
+}
+
+/* Стили для контейнера */
+.container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Стили для заголовков */
+h1 {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/* Стили для кнопок */
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003366);
+}
+
+/* Стили для таблицы */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background: #007bff;
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e6f4ff;
+}
+
+/* Стили для бейджей */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+/* Кастомные стили для SweetAlert2 */
+.custom-swal-popup {
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.swal2-title {
+    color: #0056b3; /* Синий цвет заголовка */
+}
+
+.swal2-confirm {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important; /* Градиент для кнопки подтверждения */
+    border: none !important;
+}
+
+.swal2-cancel {
+    background: linear-gradient(135deg, #dc3545, #c82333) !important; /* Градиент для кнопки отмены */
+    border: none !important;
+}

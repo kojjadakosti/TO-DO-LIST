@@ -1,14 +1,14 @@
 {% extends 'tasks/base.html' %}
 
 {% block content %}
-    <h1 class="mb-4">Список задач</h1>
+    <h1 class="mb-4"><i class="bi bi-check2-square"></i> Список задач</h1>
 
     <!-- Таблица с задачами -->
-    <table class="table table-hover table-bordered">
-        <thead class="table-dark">
+    <table class="table table-hover">
+        <thead>
         <tr>
             <th>Название</th>
-            <th>Описание</th>
+            <th style="max-width: 300px;">Описание</th>
             <th>Статус</th>
             <th>Действия</th>
         </tr>
@@ -17,7 +17,7 @@
         {% for task in tasks %}
             <tr>
                 <td>{{ task.task_name }}</td>
-                <td>{{ task.description }}</td>
+                <td class="text-truncate" style="max-width: 300px;">{{ task.description }}</td>
                 <td>
                     {% if task.is_completed %}
                         <span class="badge bg-success">Выполнено</span>
@@ -33,7 +33,7 @@
                         <i class="bi bi-pencil"></i> Редактировать
                     </a>
                     <form method="post" action="{% url 'tasks:delete' task.id %}" style="display: inline;"
-                          onsubmit="return confirm('Вы уверены, что хотите удалить эту задачу?');">
+                          onsubmit="return confirmDelete(event);">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger btn-sm">
                             <i class="bi bi-trash"></i> Удалить
