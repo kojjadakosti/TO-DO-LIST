@@ -4,20 +4,29 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Стили для шапки */
-.navbar {
+/* Стили для бейджей */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+/* Стили для кнопок */
+.btn-primary {
     background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand {
-    color: white !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.navbar-brand:hover {
-    color: #cce7ff !important;
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003366);
 }
 
 /* Стили для контейнера */
@@ -35,15 +44,20 @@ h1 {
     font-weight: bold;
 }
 
-/* Стили для кнопок */
-.btn-primary {
+/* Стили для шапки */
+.navbar {
     background: linear-gradient(135deg, #007bff, #0056b3);
-    border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:hover {
-    background: linear-gradient(135deg, #0056b3, #003366);
+.navbar-brand {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: #cce7ff !important;
 }
 
 /* Стили для таблицы */
@@ -59,20 +73,6 @@ h1 {
 
 .table-hover tbody tr:hover {
     background-color: #e6f4ff;
-}
-
-/* Стили для бейджей */
-.badge {
-    font-size: 0.9rem;
-    padding: 0.5em 0.75em;
-}
-
-.badge.bg-success {
-    background: linear-gradient(135deg, #28a745, #218838);
-}
-
-.badge.bg-warning {
-    background: linear-gradient(135deg, #ffc107, #e0a800);
 }
 
 /* Кастомные стили для SweetAlert2 */
@@ -94,3 +94,4 @@ h1 {
     background: linear-gradient(135deg, #dc3545, #c82333) !important; /* Градиент для кнопки отмены */
     border: none !important;
 }
+

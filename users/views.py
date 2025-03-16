@@ -1,4 +1,5 @@
 from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -33,3 +34,13 @@ def login(request):
         form = UserLoginForm()
     context = {'form': form}
     return render(request, 'users/login.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
+
+@login_required(login_url='/users/login/')
+def profile(request):
+    return render(request, 'users/profile.html')

@@ -1,24 +1,24 @@
 // Функция для подтверждения удаления задачи
 function confirmDelete(event) {
-    event.preventDefault(); // Отменяем стандартное поведение формы
-    const form = event.target; // Форма, которая вызвала событие
+    event.preventDefault();
+    const form = event.target;
 
     Swal.fire({
         title: 'Вы уверены?',
         text: "Вы не сможете отменить это действие!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#007bff', // Синий цвет кнопки подтверждения
-        cancelButtonColor: '#dc3545', // Красный цвет кнопки отмены
+        confirmButtonColor: '#007bff',
+        cancelButtonColor: '#dc3545',
         confirmButtonText: 'Да, удалить!',
         cancelButtonText: 'Отмена',
-        background: '#fff', // Белый фон модального окна
+        background: '#fff',
         customClass: {
-            popup: 'custom-swal-popup', // Класс для кастомного стиля
+            popup: 'custom-swal-popup',
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            form.submit(); // Отправляем форму, если пользователь подтвердил
+            form.submit();
         }
     });
 }

@@ -1,9 +1,10 @@
-from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404
-from django.http import HttpResponseNotAllowed
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseNotAllowed
+from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404
 
 from tasks.forms import TaskCreationForm
 from tasks.models import Task
+
 
 @login_required(login_url='/users/login/')
 def index(request):
@@ -11,7 +12,7 @@ def index(request):
     context = {'tasks': tasks}
     return render(request, 'tasks/list.html', context)
 
-
+@login_required(login_url='/users/login/')
 def create(request):
     if request.method == 'POST':
         form = TaskCreationForm(request.POST)
@@ -23,7 +24,7 @@ def create(request):
     context = {'form': form}
     return render(request, 'tasks/create.html', context)
 
-
+@login_required(login_url='/users/login/')
 def edit(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     if request.method == 'POST':
@@ -44,6 +45,7 @@ def delete(request, task_id):
     else:
         return HttpResponseNotAllowed(['POST'])
 
+@login_required(login_url='/users/login/')
 def details(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     context = {'task': task}

@@ -1,9 +1,10 @@
 {% extends 'tasks/base.html' %}
 
 {% block content %}
-    <h1 class="mb-4"><i class="bi bi-check2-square"></i> Список задач</h1>
+    <h1 class="mb-4">
+        <i class="bi bi-check2-square"></i> Список задач
+    </h1>
 
-    <!-- Таблица с задачами -->
     <table class="table table-hover">
         <thead>
         <tr>
@@ -20,9 +21,13 @@
                 <td class="text-truncate" style="max-width: 300px;">{{ task.description }}</td>
                 <td>
                     {% if task.is_completed %}
-                        <span class="badge bg-success">Выполнено</span>
+                        <span class="badge bg-success">
+                                Выполнено
+                            </span>
                     {% else %}
-                        <span class="badge bg-warning text-dark">Не выполнено</span>
+                        <span class="badge bg-warning text-dark">
+                                Не выполнено
+                            </span>
                     {% endif %}
                 </td>
                 <td>

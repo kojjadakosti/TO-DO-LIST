@@ -3,6 +3,17 @@
 {% block content %}
     <h1>{{ task.task_name }}</h1>
     <p>{{ task.description }}</p>
-    <p><strong>Статус:</strong> {% if task.is_completed %}Выполнено{% else %}Не выполнено{% endif %}</p>
-    <a href="{% url 'index' %}" class="btn btn-secondary">Назад к списку</a>
+
+    <p>
+        <strong>Статус:</strong>
+        {% if task.is_completed %}
+            Выполнено
+        {% else %}
+            Не выполнено
+        {% endif %}
+    </p>
+
+    <a href="{% url 'index' %}" class="btn btn-secondary">
+        Назад к списку
+    </a>
 {% endblock %}
